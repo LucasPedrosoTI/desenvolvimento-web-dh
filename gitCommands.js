@@ -4,4 +4,6 @@
 // git remote add origin "URL-do-projeto"
 // git remote -v --> check project
 // git status --> to check files to be commited
-// git add . --> add new files to commit
+// git add . --> add all new files to commit
+// git commit -m "mensagem"
+// git push -u origin master
