@@ -1,0 +1,23 @@
+papagaio = (texto) => {
+    for (var i = 0; i <= 5; i++){
+        console.log(texto)
+    }
+}
+var contador
+
+function naoPareDeContarImparesAte(numero){
+    // Escreva aqui o seu código
+    let contador = [];
+    for (let index = 0; index <= numero; index++) {
+        index % 2 != 0 ? contador.push(index) : "";         
+    }    return contador.length
+} 
+
+console.log(naoPareDeContarImparesAte(6));
+console.log(contador);
+
+let contador2 = 0
+while (contador2 < 2) {
+    console.log("While");
+    contador++    
+}
