@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "name": "meu-projeto",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "fun": "nodemon meu-projeto/PROJETO PETS/functions.js"
+  }
+}
