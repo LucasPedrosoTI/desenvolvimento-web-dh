@@ -16,6 +16,7 @@ function naoPareDeContarImparesAte(numero){
 
 
 
+
 /*function count(inicio, fim) {
     //Escreva seu código aqui
     do {
