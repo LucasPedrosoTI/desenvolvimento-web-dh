@@ -1,18 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-
 body {
     font-family: 'Roboto', sans-serif;
-    margin: 0;
+    margin: 0 auto;
+    text-align: center;
 }
+
 
 /* HEADERS */
 
 #navbar {
     align-items: center;
-    box-shadow: 0px 10px 15px -6px rgba(0,0,0,0.2);
+    box-shadow: 0px 10px 15px -6px rgba(0, 0, 0, 0.2);
 }
 
-img, ul, a , h1 {
+img,
+ul,
+a,
+h1 {
     display: inline-block;
 }
 
@@ -34,8 +38,6 @@ a {
     font-size: 20px;
 }
 
-
-
 #logo {
     align-items: center;
 }
@@ -45,17 +47,62 @@ a {
 
 #banner {
     color: #fff;
-   text-align: center;
-   background-image: url(../img/banner.jpg);
-   background-repeat: no-repeat;
-   background-size: cover;
-   height: 500px;
+    text-align: center;
+    background-image: url(../img/banner.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
 }
+
 #banner p {
     padding-top: 200px;
 }
+
 button {
     background-color: #fff;
     border-radius: 10px;
     padding: 5px;
 }
+
+.form-style-5 {
+    max-width: 500px;
+    padding: 10px 20px;
+    background: #f4f7f8;
+    margin: 10px auto;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+input {
+    border: none;
+    background: #f4f7f8;
+    border-bottom: #ccc solid;
+}
+
+textarea {
+    opacity: 30%;
+    border-radius: 10px;
+    background: #f4f7f8;
+    border-bottom: #ccc solid;
+}
+
+.text-center {
+    max-width: max-content;
+    display: inline-block;
+}
+
+
+/* PSEUDO SELETORES */
+
+input:hover {
+    border-color: #ff0000cc;
+}
+
+input:focus {
+    border: solid #00ff00cc;
+}
+
+
+/* input:nth-child(odd) {
+    background-color: #797979cc;
+} */
