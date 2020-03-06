@@ -4,32 +4,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" href="css/imagens.css">
     <title>Aula HTML</title>
 </head>
 
 <body>
-    <header>
-        <div id="navbar">
-            <img id="logo" src="./img/logo.png" alt="logo" width="75">
-            <h1> Aula HTML </h1>
-            <ul type="none">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="form.html">Formulários HTML</a></li>
-                <li><a href="float.html">Float HTML</a></li>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Aula HTML - Forms</a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onclick="openMenu()"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="form.html">Formulários HTML</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="float.html">Float HTML</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="tags.html">Tags Semânticas HTML</a>
+                </li>
                 <li>
-                    <a href="tags.html">Tags Semânticas HTML</a>
+                    <button onclick="closeMenu()">Close</button>
                 </li>
             </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
         </div>
-    </header>
+    </nav>
+
+
+    <!-- <ul type="none" class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="form.html">Formulários HTML</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="float.html">Float HTML</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="tags.html">Tags Semânticas HTML</a>
+                    </li>
+                </ul> -->
     <main>
         <div id="banner">
-            <p>Teste</p>
-            <h2>NEW ORLEANS FOREST</h2>
-            <button type="submit">CHECK IT OUT</button>
+            <div class="box">
+                <img src="./img/banner.jpg">
+                <div class="texto">
+                    <p>The Most Beautiful Landscapes</p>
+                    <h2>NEW ORLEANS FOREST</h2>
+                    <button type="button">
+                    <a href="image.html">CHECK IT OUT</a> 
+                </button>
+                </div>
+            </div>
+        </div>
+
+        <button class="open-button" onclick="openForm()">Chat</button>
+
+        <div class="chat-popup" id="myForm">
+            <form action="/action_page.php" class="form-container">
+                <h1>Chat</h1>
+
+                <label for="msg"><b>Message</b></label>
+                <textarea placeholder="Type message.." name="msg" required></textarea>
+
+                <button type="submit" class="btn">Send</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+        </div>
+
+        <div id="imagens">
+            <div id="imagem1" class="imagem">
+                <button>SEE MORE</button>
+            </div>
+            <div id="imagem2" class="imagem">
+                <button>SEE MORE</button>
+            </div>
+            <div id="imagem3" class="imagem">
+                <button>SEE MORE</button>
+            </div>
+            <div id="imagem4" class="imagem">
+                <button>SEE MORE</button>
+            </div>
+            <div id="imagem5" class="imagem">
+                <button>SEE MORE</button>
+            </div>
+            <div id="imagem6" class="imagem">
+                <button>SEE MORE</button>
+            </div>
+
         </div>
     </main>
+
+    <marquee behavior="" direction="">
+        <footer>Developed by Lucas Pedroso</footer>
+    </marquee>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+    <script src="./js/script.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 </body>
 

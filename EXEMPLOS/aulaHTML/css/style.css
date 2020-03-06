@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0 auto;
@@ -9,8 +13,14 @@ body {
 /* HEADERS */
 
 #navbar {
+    top: 0;
+    background-color: #fff;
+    width: 100%;
+    position: fixed;
     align-items: center;
     box-shadow: 0px 10px 15px -6px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    height: 75px;
 }
 
 img,
@@ -45,23 +55,52 @@ a {
 
 /* MAIN */
 
-#banner {
-    color: #fff;
-    text-align: center;
-    background-image: url(../img/banner.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 500px;
+.box {
+    position: relative;
+    display: inline-block;
 }
 
-#banner p {
-    padding-top: 200px;
+#banner img {
+    color: #fff;
+    text-align: center;
+    /* background-image: url(../img/banner.jpg); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 900px;
+    margin-top: 95px;
+    max-width: 100%;
+    max-height: 100vh;
+}
+
+#banner h2 {
+    font-size: 35px;
+}
+
+#banner .texto {
+    position: absolute;
+    color: #fff;
+    z-index: 1;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: 40%;
+    /* Adjust this value to move the positioned div up and down */
+    width: 60%;
+    /* Set the width of the positioned div */
+    /* padding-top: 300px; */
 }
 
 button {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
     background-color: #fff;
     border-radius: 10px;
-    padding: 5px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    box-shadow: 0px 10px 15px -6px rgba(0, 0, 0, 0.2);
+    background-color: #ff0000cc;
 }
 
 .form-style-5 {
@@ -102,7 +141,109 @@ input:focus {
     border: solid #00ff00cc;
 }
 
+button:hover {
+    text-decoration: underline;
+    background-color: #00ff0081;
+    cursor: pointer;
+}
 
-/* input:nth-child(odd) {
-    background-color: #797979cc;
-} */
+
+/* Button used to open the chat form - fixed at the bottom of the page */
+
+.open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+}
+
+
+/* The popup chat - hidden by default */
+
+.chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+}
+
+
+/* Add styles to the form container */
+
+.form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+}
+
+
+/* Full-width textarea */
+
+.form-container textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    resize: none;
+    min-height: 200px;
+}
+
+
+/* When the textarea gets focus, do something */
+
+.form-container textarea:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+
+/* Set a style for the submit/send button */
+
+.form-container .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+
+/* Add a red background color to the cancel button */
+
+.form-container .cancel {
+    background-color: red;
+}
+
+
+/* Add some hover effects to buttons */
+
+.form-container .btn:hover,
+.open-button:hover {
+    opacity: 1;
+}
+
+
+/* FOOTER */
+
+footer {
+    margin: 20px;
+}
+
+marquee {
+    margin-top: 10px;
+    background-color: rgba(148, 0, 148, 0.623);
+}
+
+@media (max-width: 1304) {}
