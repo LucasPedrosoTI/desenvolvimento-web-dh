@@ -1,0 +1,140 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+header {
+    background-image: url("../img/banner.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 65vh;
+}
+
+nav {
+    background-color: #e0e0e0;
+    margin-bottom: 20px;
+    position: sticky;
+    box-shadow: 10px 0px 5px black;
+}
+
+nav button {
+    display: none;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+nav ul li a {
+    display: inline-block;
+    padding: 20px 20px;
+    text-decoration: none;
+    color: #666;
+}
+
+nav ul li a:hover {
+    background-color: #cccccc80;
+}
+
+nav ul li a.selected {
+    background-color: #ccc;
+}
+
+.container {
+    width: 90%;
+    max-width: 960px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+main section {
+    display: flex;
+    justify-content: space-between;
+}
+
+main section article.chamada {
+    background-color: rgb(185, 195, 255);
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+    /* flex-grow: 2; */
+}
+
+main section article button {
+    padding: 20px 30px;
+    font-size: 1rem;
+    background-color: blue;
+    border-radius: 10px;
+    float: right;
+    color: #fafafa;
+    border: none;
+}
+
+.video iframe {
+    height: 100%;
+}
+
+.blocos article {
+    background-color: #e0e0e0;
+    padding: 20px;
+    margin: 20px 0;
+    width: calc(25% - 15px);
+}
+
+.blocos article img {
+    width: 100%;
+}
+
+footer {
+    background-color: #000000fd;
+    color: #ccc;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+@media( max-width: 768px) {
+    .blocos article {
+        width: calc(50% - 10px);
+        margin-right: 10px;
+    }
+    main section {
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .video {
+        width: fit-content;
+        height: 350px;
+    }
+}
+
+@media ( max-width: 480px) {
+    header {
+        height: 40vh;
+    }
+    .blocos article {
+        width: 100%;
+        margin: 10px 0px;
+    }
+    nav ul {
+        display: none;
+    }
+    nav button {
+        display: inline-block;
+        border: none;
+        background-color: #e0e0e0;
+        padding: 5px;
+        font-size: 1.5rem;
+        margin-left: 10px;
+        color: #666;
+    }
+}
