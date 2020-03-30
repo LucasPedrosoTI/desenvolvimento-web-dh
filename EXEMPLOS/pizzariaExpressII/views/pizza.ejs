@@ -1,34 +1,18 @@
-<%- include('parts/head', {title: 'Pizzaria Fantástica'}); %>
+<%- include('parts/head',{title:'Pizzaria Fantástica'}); %>
+<link rel="stylesheet" href="/css/pizza.css">
+	<main>
+		<h1><%= pizza.nome %></h1>
+		<h2><%= pizza.preco.toLocaleString('pt-br', { minimumFractionDigits: 2 , style: 'currency', currency: 'BRL' }) %></h2>
+		<img src="<%= pizza.img %>" alt="<%= pizza.nome %>">
+		<div>Ingredientes: <%= pizza.ingredientes.join(", ") %></div>
+		<button>+ Add</button>
+		
+		<% if(idPrev){ %>
+		<a href="/pizzas/<%= idPrev %>" class="prev">&lt;</a>
+		<% } %>
 
-    <form>
-        <input type="text" name="busca" placeholder="Qual pizza você procura?" autocomplete="off">
-        <button type="submit">Buscar</button>
-    </form>
-    <main>
-        <article>
-            <img src="<%= pizza.img %>" alt="<%= pizza.nome %>">
-            <button>+ Add</button>
-            <div>
-                <%= pizza.nome %>
-            </div>
-            <span>
-                <%= pizza.preco.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) %>
-                </span>
-        </article>
-        <ul>
-            <% for (item of pizza.ingredientes) { %>
-                <li>
-                    <%= item %>
-                </li>
-                <% } %>
-        </ul>
-
-    </main>
-
-    <!-- # Fazer um link em cada article da index.ejs apontando para a rota /pizzas/:id
-
-# fazer com que a pizza.ejs fique BONITA
-
-#FAZER COM QUE A ERRO.EJS TAFIQUE BONITA -->
-
-    <%- include('parts/foot'); %>
+		<% if(idNext){ %>
+		<a href="/pizzas/<%= idNext %>" class="next">&gt;</a>
+		<% } %>
+	</main>
+	<%- include('parts/foot'); %>

@@ -1,6 +1,3 @@
-<%- include('parts/head', {title: 'Pizzaria Fantástica'}); %>
-
-    Pizza
-    <%= id %> não existe em nosso cardápio
-
-        <%- include('parts/foot'); %>
+<h1><%= message %></h1>
+<h2><%= error.status %></h2>
+<pre><%= error.stack %></pre>
