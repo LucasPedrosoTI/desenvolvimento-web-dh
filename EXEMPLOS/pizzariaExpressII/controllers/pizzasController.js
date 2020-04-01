@@ -1,8 +1,9 @@
 const pizzas = require('../database/Pizzas.json');
+const fs = require('fs');
 
 module.exports = {
     index: (req, res) => {
-        res.render("index", { pizzas });
+        res.render("index", { pizzas, busca: "" });
     },
     show: (req, res) => {
 
@@ -34,18 +35,97 @@ module.exports = {
         }
     },
     search: (req, res) => {
-        //capturar busca do usuário
-        let busca = req.query.busca;
-
-        // encotnrar as pizzas buscadas a partir dessa info
-        let pizzasEncontradas = pizzas.filter(pizza => pizza.nome.toLowerCase().includes(busca.toLowerCase()))
-
-        res.render('index', { pizzas: pizzasEncontradas })
+        let busca = req.query.q;
+        if (busca) {
+            let result = pizzas.filter(p => p.nome.toUpperCase().includes(busca.toUpperCase()));
+            return res.render('index', { pizzas: result, busca });
+        } else {
+            return res.redirect('/');
+        }
     },
+    edit: (req, res) => {
+        // Carregar a pizza de id passado pela rota
+        let pizza = pizzas.find(
+            (pizza) => {
+                return pizza.id == req.params.id;
+            }
+        )
 
-    add: (req, res) => {
-        let { id } = req.body
+        // Enviar view edit-pizza passando para ela a pizza carregada
+        return res.render("crud-pizzas/edit", { pizza });
+    },
+    create: (req, res) => {
+        return res.render("crud-pizzas/create");
+    },
+    store: (req, res) => {
 
-        res.send(id)
+        //Capturar as infos enviadas pelo user
+        let { nome, ingredientes, preco } = req.body;
+
+        ingredientes = ingredientes.split(","); //transforma em um array
+
+        ingredientes = ingredientes.map(
+                ing => ing.trim()
+            ) // tira os espaços
+
+        // tratar o upload do arquivo
+
+        // Criar um objeto literal representando uma pizza com as informações enviadas
+        let id = pizzas[pizzas.length - 1].id + 1;
+        const pizza = { id, nome, ingredientes, preco: Number(preco), destaque: false, img: '' }
+
+        // adicionar a pizza criada ao array de pizzas
+        pizzas.push(pizza);
+
+        // salvar o array de pizzas no pizzas.json
+        fs.writeFileSync('./database/Pizzas.json', JSON.stringify(pizzas))
+
+        // redirecionar o usuário de volta a tela de pizzas
+
+        res.redirect('/pizzas')
+
+    },
+    list: (req, res) => {
+        return res.render("crud-pizzas/list", { pizzas });
+    },
+    update: (req, res) => {
+        // caputrar o id da pizza a ser alterada!
+        let id = req.params.id
+
+        // caputrar os novos dados da pizza
+
+        let { nome, ingredientes, preco } = req.body
+
+        ingredientes = ingredientes.split(","); //transforma em um array
+
+        ingredientes = ingredientes.map(
+            ing => ing.trim())
+
+
+        // alterar os campos (exceto a imagem);
+        let pizza = pizzas.find(p => id == p.id)
+
+        pizza.nome = nome;
+        pizza.preco = Number(preco);
+        pizza.ingredientes = ingredientes;
+
+        // salvar o array de pizzas no pizzas.json
+        fs.writeFileSync('./database/Pizzas.json', JSON.stringify(pizzas))
+
+        // redirecionar o usuário de volta a tela de pizzas
+
+        res.redirect('/pizzas')
+
+    },
+    delete: (req, res) => {
+
+        //remover a pizza do JSON
+        pizzas.splice(pizzas.findIndex(e => e.id == req.params.id), 1) // a findIndex é usada para encontrar o elemento com o id passado, e o "1" remove somente sse elemento
+
+        // salvar o array de pizzas no pizzas.json
+        fs.writeFileSync('./database/Pizzas.json', JSON.stringify(pizzas))
+
+        //redirecionar para a lista de pizzas
+        res.redirect('/pizzas')
     }
 }
