@@ -1,0 +1,27 @@
+<%- include('../parts/head',{title:'Pizzaria Fantástica'}); %>
+<%- include('../parts/navbar', {pizzasActive: 'none', clientsActive: 'active'}) %> 
+<link rel="stylesheet" href="/css/list-pizza.css">
+<div id="list-pizza">
+	<a href="/pizzas/create">Cadastrar Novo Cliente</a>
+	<table>
+		<tbody>
+			<% for(let client of clients ) { %>
+			<tr>
+				<td><%= client.nome %></td>
+				<td>
+					<%= client.telefone%>
+				</td>
+                <td><%= client.cep %> </td>
+                <td> <%= client.numero %>  </td>
+				<td>
+					<form method="POST" action="/clients/<%= client.id %>?_method=DELETE">
+						<button type="submit">Remover</button>
+					</form>
+					<a href="/clients/<%= client.id %>/edit">Editar</button>
+				</td>
+			</tr>
+			<% } %>
+		</tbody>
+	</table>
+</div>
+<%- include('../parts/foot'); %>

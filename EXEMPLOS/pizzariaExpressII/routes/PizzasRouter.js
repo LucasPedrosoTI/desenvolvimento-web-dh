@@ -14,7 +14,7 @@ router.get("/pizzas/create", verificaUsuarioLogado, PizzasController.create);
 router.get("/pizzas/:id", PizzasController.show);
 router.get("/pizzas", verificaUsuarioLogado, PizzasController.list);
 router.post("/pizzas", verificaUsuarioLogado, upload.single("img"), PizzasController.store);
-router.put("/pizzas/:id/update", PizzasController.update);
-router.delete("/pizzas/:id", PizzasController.delete);
+router.put("/pizzas/:id/update", verificaUsuarioLogado, PizzasController.update);
+router.delete("/pizzas/:id", verificaUsuarioLogado, PizzasController.delete);
 
 module.exports = router;

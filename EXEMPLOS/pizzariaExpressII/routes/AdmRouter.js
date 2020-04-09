@@ -5,6 +5,7 @@ const AdmController = require('../controllers/AdmController');
 
 router.get('/login', AdmController.show);
 router.post('/login', AdmController.login);
+router.get('/logout', AdmController.logout);
 
 
 module.exports = router;
